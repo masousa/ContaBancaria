@@ -1,8 +1,7 @@
 package org.example.telas;
 
 import org.example.entidades.Conta;
-import org.example.entidades.TipoTransacao;
-import org.example.entidades.Transacao;
+import org.example.entidades.ContaSalario;
 import org.example.excecao.ContaNaoEncontradaException;
 import org.example.persistencia.ContaPersistencia;
 

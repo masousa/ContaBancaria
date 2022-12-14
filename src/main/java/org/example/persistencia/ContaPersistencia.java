@@ -8,10 +8,11 @@ import java.util.Optional;
 public class ContaPersistencia {
     private static ArrayList<Conta> contas = new ArrayList<>();
 
-    public static void adicionar(Conta conta){
+    public static void adicionar(Conta conta) {
         contas.add(conta);
     }
-    public static Optional<Conta> pesquisarPorNumeroDaConta(String numeroConta){
+
+    public static Optional<Conta> pesquisarPorNumeroDaConta(String numeroConta) {
 
         return contas.stream()
                 .filter(conta -> conta.getNumero().equals(numeroConta)).findFirst();
