@@ -6,12 +6,12 @@ import java.time.LocalDateTime;
 public class Transacao {
 
     public LocalDateTime dataTransacao;
-    public Conta destinatario;
+    public ContaSalario destinatario;
     public BigDecimal valor;
 
     private TipoTransacao tipoTransacao;
 
-    public Transacao(Conta destinatario, BigDecimal valor, TipoTransacao tipoTransacao) {
+    public Transacao(ContaSalario destinatario, BigDecimal valor, TipoTransacao tipoTransacao) {
         this.destinatario = destinatario;
         this.valor = valor;
         this.tipoTransacao = tipoTransacao;
@@ -22,7 +22,7 @@ public class Transacao {
         return dataTransacao;
     }
 
-    public Conta getDestinatario() {
+    public ContaSalario getDestinatario() {
         return destinatario;
     }
 
