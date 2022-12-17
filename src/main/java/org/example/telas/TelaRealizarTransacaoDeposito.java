@@ -4,17 +4,14 @@ import org.example.entidades.Conta;
 import org.example.entidades.ContaSalario;
 import org.example.entidades.TipoConta;
 import org.example.excecao.ContaNaoEncontradaException;
-import org.example.persistencia.ContaPersistencia;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class TelaRealizarTransacaoDeposito implements Tela {
+public class TelaRealizarTransacaoDeposito extends Tela {
     public void executar(Scanner scanner) throws ContaNaoEncontradaException {
-        System.out.println("Número da conta para realização do deposito");
-
-        ContaSalario conta = ContaPersistencia.pesquisarPorNumeroDaConta(scanner.next())
-                .orElseThrow(ContaNaoEncontradaException::new);
+        ContaSalario conta =
+                getContaSalario("Número da conta para realização do deposito", scanner);
 
         if (TipoConta.SALARIO.equals(conta.getTipoConta())) {
             throw new RuntimeException("Esta conta não permite esta operação");
