@@ -6,17 +6,17 @@ import org.example.persistencia.ContaPersistencia;
 
 import java.util.Scanner;
 
-public class TelaRealizarTransacaoSaque implements Tela {
+public class TelaObterSaldo implements Tela {
+
+    @Override
     public void executar(Scanner scanner) throws ContaNaoEncontradaException {
-        System.out.println("Número da conta para realização do saque");
+        System.out.println("Número da conta para obtenção do saldo");
 
         ContaSalario conta = ContaPersistencia.pesquisarPorNumeroDaConta(scanner.next())
                 .orElseThrow(ContaNaoEncontradaException::new);
 
-        System.out.println("Valor a ser sacado");
-
-        conta.realizarSaque(scanner.nextDouble());
-
+        double saldo = conta.saldo().doubleValue();
+        System.out.printf("Sua conta %s do tipo %s tem saldo de %.2f %n", conta.getNumero(),
+                conta.getTipoConta().getLabel(), saldo);
     }
-
 }
