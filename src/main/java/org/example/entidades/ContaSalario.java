@@ -48,6 +48,7 @@ public class ContaSalario {
         if (saldoPValidar.compareTo(BigDecimal.ZERO) < 0) {
             throw new RuntimeException("Não há saldo suficiente");
         }
+        saldo = saldoPValidar;
         transacoes.add(new Transacao(this, valor, TipoTransacao.SAQUE));
     }
 

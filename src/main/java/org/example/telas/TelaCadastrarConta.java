@@ -1,17 +1,18 @@
 package org.example.telas;
 
 import org.example.entidades.Cliente;
-import org.example.entidades.Conta;
-import org.example.entidades.ContaPoupanca;
+import org.example.entidades.ContaSalario;
 import org.example.entidades.TipoConta;
+import org.example.excecao.ContaNaoEncontradaException;
+import org.example.fabrica.ContaFabrica;
 import org.example.persistencia.ContaPersistencia;
 
 import java.util.Scanner;
 
-public class TelaCadastrarConta {
+public class TelaCadastrarConta implements Tela {
     private static int SEQUENCIAL_CONTA_CADASTRADA = 1;
 
-    public static void cadastrar(Scanner scanner) {
+    public void executar(Scanner scanner) throws ContaNaoEncontradaException {
         Cliente cliente = TelaBuscarCliente.buscar(scanner);
 
         System.out.println("Informe o número da agência onde deseja cadastrar a nova conta");
@@ -27,10 +28,7 @@ public class TelaCadastrarConta {
 
         SEQUENCIAL_CONTA_CADASTRADA++;
 
-        //Conta conta = new Conta(numeroConta,agenciaNumber,cliente,tipoConta);
-
-        //Conta conta = new ContaCorrente(numeroConta,agenciaNumber,cliente);
-        Conta conta = new ContaPoupanca(numeroConta, agenciaNumber, cliente);
+        ContaSalario conta = ContaFabrica.getInstance(tipoConta, numeroConta, agenciaNumber, cliente);
 
         ContaPersistencia.adicionar(conta);
 

@@ -21,6 +21,10 @@ public class ContaPoupanca extends Conta {
 
     }
 
+    @Override
+    public void realizarSaque(double valorDouble) {
+        this.realizarSaque(BigDecimal.valueOf(valorDouble));
+    }
 
     @Override
     public String extrato() {
