@@ -9,7 +9,7 @@ import org.example.persistencia.ContaPersistencia;
 
 import java.util.Scanner;
 
-public class TelaCadastrarConta implements Tela {
+public class TelaCadastrarConta extends Tela {
     private static int SEQUENCIAL_CONTA_CADASTRADA = 1;
 
     public void executar(Scanner scanner) throws ContaNaoEncontradaException {
